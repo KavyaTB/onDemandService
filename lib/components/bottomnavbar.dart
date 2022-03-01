@@ -1,73 +1,43 @@
-/* import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/screens/profile/profile_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_2/utils/colors.dart';
 
-import '../constants.dart';
-import '../enums.dart';
+class CustomBottomNavigation extends StatefulWidget {
+  const CustomBottomNavigation({Key? key}) : super(key: key);
 
-class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({
-    Key? key,
-    required this.selectedMenu,
-  }) : super(key: key);
+  @override
+  _CustomBottomNavigationState createState() => _CustomBottomNavigationState();
+}
 
-  final MenuState selectedMenu;
+class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, -15),
-            blurRadius: 20,
-            color: Color(0xFFDADADA).withOpacity(0.15),
-          ),
+          color: Colors.red,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(27.0))),
+      child: BottomNavigationBar(
+        backgroundColor: kPrimaryColor,
+        unselectedItemColor: Colors.grey[400],
+        showUnselectedLabels: true,
+        currentIndex: _currentIndex,
+        onTap: (value) => setState(() {
+          _currentIndex = value;
+        }),
+        items: [
+          const BottomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: kPrimaryColor),
+          const BottomNavigationBarItem(
+              icon: const Icon(Icons.home), label: 'Booked'),
+          const BottomNavigationBarItem(
+              icon: const Icon(Icons.home), label: 'Categories'),
+          const BottomNavigationBarItem(
+              icon: const Icon(Icons.home), label: 'Profile'),
         ],
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(40),
-          topRight: Radius.circular(40),
-        ),
       ),
-      child: SafeArea(
-          top: false,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/Shop Icon.svg",
-                  color: MenuState.home == selectedMenu
-                      ? kPrimaryColor
-                      : inActiveIconColor,
-                ),
-                onPressed: () =>
-                    Navigator.pushNamed(context, HomeScreen.routeName),
-              ),
-              IconButton(
-                icon: SvgPicture.asset("assets/icons/Heart Icon.svg"),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/User Icon.svg",
-                  color: MenuState.profile == selectedMenu
-                      ? kPrimaryColor
-                      : inActiveIconColor,
-                ),
-                onPressed: () =>
-                    Navigator.pushNamed(context, ProfileScreen.routeName),
-              ),
-            ],
-          )),
     );
   }
-} */
+}

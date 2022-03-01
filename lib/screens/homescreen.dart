@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/components/advertisementslider.dart';
+import 'package:flutter_application_2/components/bottomnavbar.dart';
 import 'package:flutter_application_2/constants.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -23,41 +24,42 @@ class Homescreen extends StatelessWidget {
                 Icons.notifications,
                 color: Colors.black,
               )),
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.card_travel_sharp,
+                color: Colors.black,
+              )),
         ],
       ),
+      bottomNavigationBar: const CustomBottomNavigation(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: ListView(
           children: [
             Material(
               elevation: 20.0,
               shadowColor: whiteColor,
               child: TextFormField(
                 decoration: const InputDecoration(
-                    contentPadding: const EdgeInsets.all(8.0),
+                    contentPadding: EdgeInsets.all(8.0),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(7.0))),
                     label: Text('Food'),
                     suffixIcon: Icon(Icons.search)),
               ),
             ),
-            CarouselSlider(
-              options: CarouselOptions(height: 400.0),
-              items: [1, 2, 3, 4, 5].map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
-                        decoration: BoxDecoration(color: Colors.amber),
-                        child: Text(
-                          'text $i',
-                          style: TextStyle(fontSize: 16.0),
-                        ));
-                  },
-                );
-              }).toList(),
-            )
+            const SizedBox(
+              height: 20,
+            ),
+            const AdvertisementSlider(),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [const Text('Services'), const Text('View All')],
+            ),
           ],
         ),
       ),
