@@ -37,7 +37,7 @@ class Homescreen extends StatelessWidget {
       ),
       bottomNavigationBar: const CustomBottomNavigation(),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(kHorizontalPadding),
         child: ListView(
           children: [
             Material(

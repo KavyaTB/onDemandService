@@ -9,13 +9,16 @@ class AdvertisementSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      options: CarouselOptions(height: 134.0),
+      options: CarouselOptions(
+          height: 134.0,
+          enlargeCenterPage: true,
+          aspectRatio: 16 / 9,
+          viewportFraction: 1),
       items: [1, 2, 3, 4, 5].map((i) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
                 width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.symmetric(horizontal: 5.0),
                 decoration: BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(10)),
