@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/components/advertisementslider.dart';
 import 'package:flutter_application_2/components/bottomnavbar.dart';
@@ -10,7 +12,7 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,

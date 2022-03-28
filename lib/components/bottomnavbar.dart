@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/utils/colors.dart';
 
@@ -14,7 +16,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(27.0))),
       child: BottomNavigationBar(
@@ -25,17 +27,17 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
         onTap: (value) => setState(() {
           _currentIndex = value;
         }),
-        items: [
-          const BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
               label: 'Home',
               backgroundColor: kPrimaryColor),
-          const BottomNavigationBarItem(
-              icon: const Icon(Icons.home), label: 'Booked'),
-          const BottomNavigationBarItem(
-              icon: const Icon(Icons.home), label: 'Categories'),
-          const BottomNavigationBarItem(
-              icon: const Icon(Icons.home), label: 'Profile'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), label: 'Booked'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), label: 'Categories'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home), label: 'Profile'),
         ],
       ),
     );
