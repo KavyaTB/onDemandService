@@ -1,85 +1,32 @@
-// ignore_for_file: unnecessary_const
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/components/advertisementslider.dart';
 import 'package:flutter_application_2/components/bottomnavbar.dart';
-import 'package:flutter_application_2/constants.dart';
 import 'package:flutter_application_2/utils/colors.dart';
-import 'package:flutter_application_2/utils/styling.dart';
 
-class Homescreen extends StatelessWidget {
-  const Homescreen({Key? key}) : super(key: key);
+import '../constants.dart';
+
+class SubCategoryScreen extends StatelessWidget {
+  const SubCategoryScreen({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kPrimaryLightColor,
-      appBar: AppBar(
-        backgroundColor: kbgColor,
-        elevation: 0,
-        title: const Text(
-          'Hi Geo',
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.notifications,
-                color: Colors.black,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.card_travel_sharp,
-                color: Colors.black,
-              )),
-        ],
-      ),
-      bottomNavigationBar: const CustomBottomNavigation(),
-      body: Padding(
+    return  Scaffold(
+       backgroundColor: kPrimaryLightColor,
+       
+       bottomNavigationBar: const CustomBottomNavigation(),
+             body: Padding(
+          
         padding: const EdgeInsets.all(kHorizontalPadding),
         child: ListView(
+          
           shrinkWrap: true, // You won't see infinite size error
           children: [
-            Material(
-              elevation: 0,
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.all(8.0),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    label: Text(
-                      'Search for services',
-                      style: TextStyle(color: ksearchTextColor),
-                    ),
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: ksearchTextColor,
-                      size: 30,
-                    )),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const AdvertisementSlider(),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Services', style: Theme.of(context).textTheme.headline1),
-                Text('View All', style: Theme.of(context).textTheme.subtitle2)
-              ],
-            ),
+            Text('Subcategory',textAlign: TextAlign.left,style:Theme.of(context).textTheme.headline1, ),
+         
             GridView.count(
                 padding: EdgeInsets.all(10.0),
                 shrinkWrap: true,
                 physics: ScrollPhysics(),
-                crossAxisCount: 4,
+                crossAxisCount: 3,
                 crossAxisSpacing: 15.0,
                 mainAxisSpacing: 15.0,
                 children: List.generate(choices.length, (index) {
@@ -93,7 +40,6 @@ class Homescreen extends StatelessWidget {
     );
   }
 }
-
 class Choice {
   const Choice({required this.title, required this.icon});
   final String title;
@@ -120,7 +66,7 @@ class SelectCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         print("clicked");
-        Navigator.pushNamed(context, '/subcategory');
+        Navigator.pushNamed(context, '/selectqty');
       },
       child: Container(
         child: Center(

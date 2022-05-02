@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/homescreen.dart';
 import 'package:flutter_application_2/utils/routes.dart';
+import 'package:flutter_application_2/utils/styling.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: textThemePrimary(),
       ),
       initialRoute: '/',
       getPages: AppPages.routes,
